@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 class HomeController extends Controller
 {
     // public function index()
@@ -13,6 +11,6 @@ class HomeController extends Controller
 
     public function __invoke()
     {
-        return "Hola desde el controlador de home, método __invoke";
+        return view('welcome');
     }
 }

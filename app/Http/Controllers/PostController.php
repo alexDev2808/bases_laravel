@@ -8,12 +8,12 @@ class PostController extends Controller
 {
     public function index()
     {
-        return "Hola desde el controlador de posts@index";
+        return view('posts.index');
     }
 
     public function create()
     {
-        return "Hola desde el controlador de posts@create";
+        return view('posts.create');
     }
 
     public function store(Request $request)
@@ -23,12 +23,12 @@ class PostController extends Controller
 
     public function show($post)
     {
-        return "Hola desde el controlador de posts@show, post: $post";
+        return view('posts.show', compact('post'));
     }
 
     public function edit($post)
     {
-        return "Hola desde el controlador de posts@edit, post: $post";
+        return view('posts.edit', compact('post'));
     }
 
     public function update(Request $request, $post)
