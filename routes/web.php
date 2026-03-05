@@ -49,3 +49,26 @@ Route::get('/colaboradores/{id_colaborador}', function ($id_colaborador) {
     return "Colaborador con ID: $id_colaborador";
 })->name('coloboradores.show');
 
+
+// CRUD completo
+Route::get('/posts', function() {
+    return "Mostrar todos los posts";
+});
+Route::get('/posts/create', function() {
+    return "Formulario para crear un nuevo post";
+});
+Route::post('/posts', function() {
+    return "Guardar un nuevo post";
+});
+Route::get('/posts/{post}', function($post) {
+    return "Mostrar el post: $post";
+});
+Route::get('/posts/{post}/edit', function($post) {
+    return "Formulario para editar el post: $post";
+});
+Route::put('/posts/{post}', function($post) {
+    return "Actualizar el post: $post";
+});
+Route::delete('/posts/{post}', function($post) {
+    return "Eliminar el post: $post";
+});
