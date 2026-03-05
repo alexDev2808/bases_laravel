@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -51,24 +53,12 @@ Route::get('/colaboradores/{id_colaborador}', function ($id_colaborador) {
 
 
 // CRUD completo
-Route::get('/posts', function() {
-    return "Mostrar todos los posts";
-});
-Route::get('/posts/create', function() {
-    return "Formulario para crear un nuevo post";
-});
-Route::post('/posts', function() {
-    return "Guardar un nuevo post";
-});
-Route::get('/posts/{post}', function($post) {
-    return "Mostrar el post: $post";
-});
-Route::get('/posts/{post}/edit', function($post) {
-    return "Formulario para editar el post: $post";
-});
-Route::put('/posts/{post}', function($post) {
-    return "Actualizar el post: $post";
-});
-Route::delete('/posts/{post}', function($post) {
-    return "Eliminar el post: $post";
-});
+Route::get('/home', [HomeController::class, 'index']);
+
+Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
+Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
+Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
+Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
+Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
+Route::put('/posts/{post}', [PostController::class, 'update'])->name('posts.update');
+Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
