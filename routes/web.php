@@ -3,6 +3,7 @@
 use App\Http\Controllers\AreaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\PuestoController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -54,7 +55,7 @@ Route::get('/colaboradores/{id_colaborador}', function ($id_colaborador) {
 
 
 // CRUD completo
-Route::get('/home', [HomeController::class, 'index']);
+Route::get('/home', HomeController::class); // Ruta para un controlador invocable, se ejecutará el método __invoke del controlador HomeController
 
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
 Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
@@ -68,3 +69,13 @@ Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.
 Route::resource('departamentos', AreaController::class)
     ->parameters(['departamentos' => 'area'])
     ->names('areas');
+
+Route::prefix('puestos')->name('puestos.')->controller(PuestoController::class)->group(function () {
+    Route::get('/', 'index')->name('index');
+    Route::get('/crear', 'create')->name('create');
+    Route::post('/', 'store')->name('store');
+    Route::get('/{puesto}', 'show')->name('show');
+    Route::get('/{puesto}/editar', 'edit')->name('edit');
+    Route::put('/{puesto}', 'update')->name('update');
+    Route::delete('/{puesto}', 'destroy')->name('destroy');
+});
