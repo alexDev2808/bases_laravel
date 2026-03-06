@@ -8,7 +8,15 @@ class PostController extends Controller
 {
     public function index()
     {
-        return view('posts.index');
+        $etiqueta = "Laravel";
+        $etiquetaHTML = "<strong>Laravel</strong>";
+        $posts = [
+            ['id' => 1, 'titulo' => 'Primer post', 'contenido' => 'Contenido del primer post'],
+            ['id' => 2, 'titulo' => 'Segundo post', 'contenido' => 'Contenido del segundo post'],
+            ['id' => 3, 'titulo' => 'Tercer post', 'contenido' => 'Contenido del tercer post'],
+        ];
+
+        return view('posts.index', compact('posts', 'etiqueta', 'etiquetaHTML'));
     }
 
     public function create()
