@@ -7,8 +7,8 @@ use App\Http\Controllers\PuestoController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    // return view('welcome');
-    return route('coloboradores.show', ['id_colaborador' => 123]);
+    return view('welcome');
+    // return route('coloboradores.show', ['id_colaborador' => 123]);
 });
 
 // El orden de las rutas es importante, las rutas más específicas deben ir antes que las rutas más generales o dinamicas
