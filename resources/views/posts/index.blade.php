@@ -35,6 +35,14 @@
             @endforeach
         </ul>
     @endempty
+
+    @env('local')
+        <p>Estamos en desarrollo local</p>
+    @endenv
+
+    @production
+        <p>Estamos en Productivo</p>
+    @endproduction
     
     <script>
         let posts = @json($posts); // Esto convierte la variable PHP $posts en un objeto JavaScript
