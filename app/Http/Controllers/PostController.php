@@ -11,13 +11,16 @@ class PostController extends Controller
         $etiqueta = "Laravel";
         $titulo = "Listado de posts";
         $etiquetaHTML = "<strong>Laravel</strong>";
+        $dia = 1;
         $posts = [
             ['id' => 1, 'titulo' => 'Primer post', 'contenido' => 'Contenido del primer post'],
             ['id' => 2, 'titulo' => 'Segundo post', 'contenido' => 'Contenido del segundo post'],
             ['id' => 3, 'titulo' => 'Tercer post', 'contenido' => 'Contenido del tercer post'],
         ];
 
-        return view('posts.index', compact('posts', 'etiqueta', 'etiquetaHTML', 'titulo'));
+        $images = [];
+
+        return view('posts.index', compact('posts', 'etiqueta', 'etiquetaHTML', 'titulo', 'dia', 'images'));
     }
 
     public function create()
