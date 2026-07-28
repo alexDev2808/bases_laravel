@@ -90,6 +90,27 @@
         
         
     @endwhile
+    <ul>
+    @foreach ($posts as $post)
+       <li>
+            <h2> 
+                {{ $loop->iteration }} -> {{ $post['titulo'] }}
+                @if( $loop->first ) (Primer post) @endif
+                @if( $loop->last ) (Ultimo post) @endif
+            </h2>
+            <p>{{ $post['contenido'] }}</p>
+            <ul>
+                @foreach ($post['tags'] as $tag)
+                    <li>
+                        {{ $tag }}
+                        @if($loop->parent->first)
+                            "Tag del primer post"
+                        @endif
+                    </li>
+                @endforeach
+        </li>
+    @endforeach
+    </ul>
     
     <script>
         let posts = @json($posts); // Esto convierte la variable PHP $posts en un objeto JavaScript

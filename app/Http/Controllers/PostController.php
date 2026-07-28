@@ -13,9 +13,9 @@ class PostController extends Controller
         $etiquetaHTML = "<strong>Laravel</strong>";
         $dia = 1;
         $posts = [
-            ['id' => 1, 'titulo' => 'Primer post', 'contenido' => 'Contenido del primer post'],
-            ['id' => 2, 'titulo' => 'Segundo post', 'contenido' => 'Contenido del segundo post'],
-            ['id' => 3, 'titulo' => 'Tercer post', 'contenido' => 'Contenido del tercer post'],
+            ['id' => 1, 'titulo' => 'Primer post', 'contenido' => 'Contenido del primer post', 'tags' => ['Tag 1', 'Tag 2', 'Tag 3', 'Tag 4']],
+            ['id' => 2, 'titulo' => 'Segundo post', 'contenido' => 'Contenido del segundo post', 'tags' => ['Tag 5', 'Tag 6']],
+            ['id' => 3, 'titulo' => 'Tercer post', 'contenido' => 'Contenido del tercer post', 'tags' => ['Tag 7']],
         ];
 
         $images = [];
