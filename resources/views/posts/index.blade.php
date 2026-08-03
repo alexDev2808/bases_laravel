@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Posts</title>
+
+    <style>
+        .color-red {
+            color: red;
+        }
+
+        .color-green {
+            color: green;
+        }
+
+    </style>
 </head>
 <body>
     <h1>Posts</h1>
@@ -31,7 +42,7 @@
     @else
         <ul>
             @foreach ($posts as $post)
-                <li>{{ $post['titulo'] }}: {{ $post['contenido'] }}</li>
+                <li><b @class(['color-red' => $loop->first, 'color-green' => $loop->last])>{{ $post['titulo'] }}</b>: {{ $post['contenido'] }}</li>
             @endforeach
         </ul>
     @endempty
@@ -90,9 +101,9 @@
         
         
     @endwhile
-    <ul>
+    <div>
     @foreach ($posts as $post)
-       <li>
+       <div>
             <h2> 
                 {{ $loop->iteration }} -> {{ $post['titulo'] }}
                 @if( $loop->first ) (Primer post) @endif
@@ -108,9 +119,10 @@
                         @endif
                     </li>
                 @endforeach
-        </li>
+            </ul>
+        </div>
     @endforeach
-    </ul>
+    </div>
     
     <script>
         let posts = @json($posts); // Esto convierte la variable PHP $posts en un objeto JavaScript
